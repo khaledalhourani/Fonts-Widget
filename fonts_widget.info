@@ -1,0 +1,5 @@
+; $Id$
+name = Fonts Widget
+description = Fonts widget block
+dependencies[] = book
+core = 7.x

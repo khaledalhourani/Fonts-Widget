@@ -1,0 +1,149 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Main file for the Fonts Widget module.
+ * @todo: put block and css here
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function fonts_widget_menu() {
+  $items = array();
+  $items['fonts_widget/save'] = array(
+    'page callback' => 'fonts_widget_save',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function fonts_widget_theme() {
+  return array(
+    'fonts_widget_block' => array(
+      'variables' => array('user' => NULL),
+      'template' => 'fonts-widget-block',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_block_info().
+ */
+function fonts_widget_block_info() {
+  $blocks['fonts_widget'] = array(
+    'info' => t('Fonts Widget'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view().
+ */
+function fonts_widget_block_view($delta = '') {
+  if (user_access('access content')) {
+    global $user;
+
+    $block['subject'] = t('View Options');
+    $block['content'] = theme('fonts_widget_block', array('user' => $user));
+    return $block;
+  }
+}
+
+/**
+ * Callback function for saving settings.
+ *
+ * @param property
+ *   settings to be saved, either in session if user is anonymous
+ *   or in user->data if logged-in
+ * @param id
+ *   settings to be saved, either in session if user is anonymous
+ *   or in user->data if logged-in
+ */
+function fonts_widget_save($property, $id) {
+  global $user;
+  fonts_widget_user_settings_set_value($property, $id);
+
+  drupal_exit();
+}
+
+/**
+ * Get or set default user font's widget settings
+ */
+function fonts_widget_user_settings($user) {
+  $defaults = array(
+    'face' => 'uthmani',
+    'size' => 'size-2',
+    'height' => 'height-2',
+  );
+
+  $settings = array();
+
+  foreach ($defaults as $key => $value) {
+    $settings_value = fonts_widget_user_settings_get_value($key);
+
+    // if value not isset, set it to the default value
+    if (!isset($settings_value)) {
+      $settings_value = $value;
+      fonts_widget_user_settings_set_value($key, $value);
+    }
+
+    // put the value in settings array
+    $settings[$key] = $settings_value;
+  }
+
+  return $settings;
+}
+
+/**
+ * Get user settings value
+ */
+function fonts_widget_user_settings_get_value($key) {
+  global $user;
+  if ($user->uid == 0) {
+    return isset($_SESSION[$key]) ? $_SESSION[$key] : NULL;
+  }
+  else {
+    return isset($user->data['fonts_widget'][$key]) ? $user->data['fonts_widget'][$key] : NULL;
+  }
+}
+
+/**
+ * Set user settings value
+ */
+function fonts_widget_user_settings_set_value($key, $value) {
+  global $user;
+  if ($user->uid == 0) {
+    $_SESSION[$key] = $value;
+  }
+  else {
+    $user->data['fonts_widget'][$key] = $value;
+    user_save($user);
+  }
+}
+
+/**
+ * Process variables for fonts-widget-block.tpl.php.
+ *
+ * The $variables array contains the following arguments:
+ * - $user
+ *
+ * @see fonts-widget-block.tpl.php
+ */
+function template_preprocess_fonts_widget_block(&$variables) {
+  $user = $variables['user'];
+  // Get settings
+  $settings = fonts_widget_user_settings($user);
+
+  drupal_add_css(drupal_get_path('module', 'fonts_widget') . '/fonts_widget.css');
+
+  global $base_url;
+  drupal_add_js(array('base_url' => $base_url, 'settings' => $settings), 'setting');
+  drupal_add_js(drupal_get_path('module', 'fonts_widget') . '/fonts_widget.js');
+}

@@ -1,0 +1,45 @@
+.fonts-widget-button {
+  -moz-border-radius: 2px 2px 2px 2px;
+  border: 1px solid #BBBBBB;
+  cursor: pointer;
+  display: inline-block;
+  height: 35px;
+  margin: 0 5px;
+  width: 35px;
+}
+.fonts-widget-button div {
+  padding: 1px 1px 0 0;
+  height: 32px;
+  width: 32px;
+}
+
+.fonts-widget-button.active {
+  border: 2px solid #BBBBBB;
+}
+
+.fonts-widget-button #uthmani {
+  background-image: url("images/uthmani.png");
+}
+.fonts-widget-button #arabic {
+  background-image: url("images/traditional-arabic.png");
+}
+
+.fonts-widget-button #size-1 {
+  background-image: url("images/size-1.png");
+}
+.fonts-widget-button #size-2 {
+  background-image: url("images/size-2.png");
+}
+.fonts-widget-button #size-3 {
+  background-image: url("images/size-3.png");
+}
+
+.fonts-widget-button #height-1 {
+  background-image: url("images/height-1.png");
+}
+.fonts-widget-button #height-2 {
+  background-image: url("images/height-2.png");
+}
+.fonts-widget-button #height-3 {
+  background-image: url("images/height-3.png");
+}
