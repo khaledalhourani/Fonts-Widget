@@ -5,9 +5,70 @@
  * @file
  *   Main file for the Fonts Widget module.
  * @todo
- *   modify fonts-widget-block.tpl.php
- *   defaults set from an admin page
+ *   provide admin page built on top of the API
  */
+
+/**
+ * Declaration of widget's info
+ */
+function fonts_widget_info() {
+  $items = array();
+
+  $items['face'] = array(
+    'name' => 'face',
+    'title' => t('Face'),
+    'class' => 'typeface',
+  );
+  $items['face']['uthmani'] = array(
+    'name' => 'uthmani',
+    'title' => t('Uthmani font face'),
+    'default' => TRUE,
+  );
+  $items['face']['arabic'] = array(
+    'name' => 'arabic',
+    'title' => t('Traditional Arabic font face'),
+  );
+
+  $items['size'] = array(
+    'name' => 'size',
+    'title' => t('Size'),
+    'class' => 'size',
+  );
+  $items['size']['size-1'] = array(
+    'name' => 'size-1',
+    'title' => 'Small',
+  );
+  $items['size']['size-2'] = array(
+    'name' => 'size-2',
+    'title' => 'Normal',
+    'default' => TRUE,
+  );
+  $items['size']['size-3'] = array(
+    'name' => 'size-3',
+    'title' => 'Big',
+  );
+
+  $items['height'] = array(
+    'name' => 'height',
+    'title' => t('Line height'),
+    'class' => 'height',
+  );
+  $items['height']['height-1'] = array(
+    'name' => 'height-1',
+    'title' => t('Far'),
+  );
+  $items['height']['height-2'] = array(
+    'name' => 'height-1',
+    'title' => t('Normal'),
+    'default' => TRUE,
+  );
+  $items['height']['height-3'] = array(
+    'name' => 'height-1',
+    'title' => t('Close'),
+  );
+
+  return $items;
+}
 
 /**
  * Implementation of hook_menu().
@@ -41,7 +102,6 @@ function fonts_widget_block_info() {
   $blocks['fonts_widget'] = array(
     'info' => t('Fonts Widget'),
   );
-
   return $blocks;
 }
 
@@ -51,9 +111,10 @@ function fonts_widget_block_info() {
 function fonts_widget_block_view($delta = '') {
   if (user_access('access content')) {
     global $user;
+    $items = fonts_widget_info();
 
     $block['subject'] = t('View Options');
-    $block['content'] = theme('fonts_widget_block', array('user' => $user));
+    $block['content'] = theme('fonts_widget_block', array('user' => $user, 'items' => $items));
     return $block;
   }
 }
@@ -79,11 +140,7 @@ function fonts_widget_save($property, $id) {
  * Get or set default user font's widget settings
  */
 function fonts_widget_user_settings($user) {
-  $defaults = array(
-    'face' => 'uthmani',
-    'size' => 'size-2',
-    'height' => 'height-2',
-  );
+  $defaults = fonts_widget_default_settings();
 
   $settings = array();
 
@@ -101,6 +158,24 @@ function fonts_widget_user_settings($user) {
   }
 
   return $settings;
+}
+
+/**
+ * Get default settings
+ */
+function fonts_widget_default_settings() {
+  $info = fonts_widget_info();
+  $defaults = array();
+
+  foreach ($info as $item) {
+    foreach ($item as $subitem) {
+      if (is_array($subitem) && isset($subitem['default']) && $subitem['default']) {
+        $defaults[$item['name']] = $subitem['name'];
+      }
+    }
+  }
+
+  return $defaults;
 }
 
 /**
