@@ -3,8 +3,10 @@
 
 /**
  * @file
- * Main file for the Fonts Widget module.
- * @todo: put block and css here
+ *   Main file for the Fonts Widget module.
+ * @todo
+ *   modify fonts-widget-block.tpl.php
+ *   defaults set from an admin page
  */
 
 /**
