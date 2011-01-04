@@ -58,13 +58,32 @@ function fonts_widget_info() {
     'title' => t('Far'),
   );
   $items['height']['height-2'] = array(
-    'name' => 'height-1',
+    'name' => 'height-2',
     'title' => t('Normal'),
     'default' => TRUE,
   );
   $items['height']['height-3'] = array(
-    'name' => 'height-1',
+    'name' => 'height-3',
     'title' => t('Close'),
+  );
+
+  $items['background'] = array(
+    'name' => 'background',
+    'title' => t('View mode'),
+    'class' => 'background',
+  );
+  $items['background']['white'] = array(
+    'name' => 'white',
+    'title' => t('White'),
+    'default' => TRUE,
+  );
+  $items['background']['old'] = array(
+    'name' => 'old',
+    'title' => t('Old'),
+  );
+  $items['background']['black'] = array(
+    'name' => 'black',
+    'title' => t('Black'),
   );
 
   return $items;

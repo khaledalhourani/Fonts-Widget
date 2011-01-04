@@ -3,12 +3,11 @@
   border: 1px solid #BBBBBB;
   cursor: pointer;
   display: inline-block;
-  height: 35px;
+  height: 32px;
   margin: 0 5px;
-  width: 35px;
+  width: 32px;
 }
 .fonts-widget-button div {
-  padding: 1px 1px 0 0;
   height: 32px;
   width: 32px;
 }
@@ -42,4 +41,55 @@
 }
 .fonts-widget-button #height-3 {
   background-image: url("images/height-3.png");
+}
+
+.fonts-widget-button #white {
+  background-color: #fff;
+}
+.fonts-widget-button #old {
+  background-color: #fff9d4;
+}
+.fonts-widget-button #black {
+  background-color: #000;
+}
+
+
+.uthmani {
+  font-family: "UthmanTN1";
+}
+.arabic {
+  font-family: "Traditional Arabic";
+}
+
+.size-1 {
+  font-size: 18px;
+}
+.size-2 {
+  font-size: 22px;
+}
+.size-3 {
+  font-size: 26px;
+}
+
+.height-1 {
+  line-height: 2em;
+}
+.height-2 {
+  line-height: 1.5em;
+}
+.height-3 {
+  line-height: 1em;
+}
+
+.white {
+  background-color: #fff;
+  color: #000;
+}
+.old {
+  background-image: url("images/Paper11.jpg");
+  color: #000;
+}
+.black {
+  background-color: #000;
+  color: #fff;
 }
