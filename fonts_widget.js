@@ -14,7 +14,8 @@ Drupal.behaviors.fonts_widget = {
    * Desc
    */
   init: function() {
-    var nass = $(".node .content");
+    //var nass = $(".node .content");
+    var nass = $("#main #content");
 
     $(".fonts-widget-button div").click(function() {
       // Apply the appropriate css
@@ -30,9 +31,7 @@ Drupal.behaviors.fonts_widget = {
       var property = $(this).parent().parent().attr("id");
       var id = $(this).attr("id");
       var url = Drupal.settings.base_url + '/fonts_widget/save/' + property + '/' + id;
-      $.post(url, function(data) {
-        console.log(data);
-      });
+      $.post(url);
     });
   },
 

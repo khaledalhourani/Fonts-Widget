@@ -1,0 +1,81 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  fonts_widget.module: n/a
+#  fonts_widget.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Fonts Widget\n"
+"POT-Creation-Date: 2011-01-04 13:55+0200\n"
+"PO-Revision-Date: 2011-01-04 14:15+0200\n"
+"Last-Translator: Khaled Alhourani <me@khaledalhourani.com>\n"
+"Language-Team: Khaled Alhourani <me@khaledalhourani.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Arabic\n"
+
+#: fonts_widget.module:19
+msgid "Face"
+msgstr "الخط"
+
+#: fonts_widget.module:24
+msgid "Uthmani font face"
+msgstr "الخط العثماني"
+
+#: fonts_widget.module:29
+msgid "Traditional Arabic font face"
+msgstr "الخط العربي التقليدي"
+
+#: fonts_widget.module:34
+msgid "Size"
+msgstr "الحجم"
+
+#: fonts_widget.module:53
+msgid "Line height"
+msgstr "الأسطر"
+
+#: fonts_widget.module:58
+msgid "Far"
+msgstr "متباعد"
+
+#: fonts_widget.module:62
+msgid "Normal"
+msgstr "عادي"
+
+#: fonts_widget.module:67
+msgid "Close"
+msgstr "متقارب"
+
+#: fonts_widget.module:72
+msgid "View mode"
+msgstr "نمط القراءة"
+
+#: fonts_widget.module:77
+msgid "White"
+msgstr "أبيض"
+
+#: fonts_widget.module:82
+msgid "Old"
+msgstr "ورق قديم"
+
+#: fonts_widget.module:86
+msgid "Black"
+msgstr "أسود"
+
+#: fonts_widget.module:122
+#: fonts_widget.info:0
+msgid "Fonts Widget"
+msgstr "ودجة الخط"
+
+#: fonts_widget.module:135
+msgid "View Options"
+msgstr "خيارات العرض"
+
+#: fonts_widget.info:0
+msgid "Fonts widget block"
+msgstr "صندوق وجدجة الخط"
+
