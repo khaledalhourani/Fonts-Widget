@@ -14,7 +14,6 @@ Drupal.behaviors.fonts_widget = {
    * Desc
    */
   init: function() {
-    //var nass = $(".node .content");
     var nass = $("#main #content");
 
     $(".fonts-widget-button div").click(function() {
@@ -26,6 +25,9 @@ Drupal.behaviors.fonts_widget = {
 
       $(this).parent().addClass("active");
       nass.addClass($(this).attr("id"));
+
+      // Trigger new event
+      nass.trigger('cssClassChanged')
 
       // Save settings onclick via ajax request
       var property = $(this).parent().parent().attr("id");
