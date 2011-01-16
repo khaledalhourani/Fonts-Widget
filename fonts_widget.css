@@ -7,50 +7,54 @@
   margin: 0 5px;
   width: 32px;
 }
-.fonts-widget-button div {
-  height: 32px;
-  width: 32px;
-}
-
 .fonts-widget-button.active {
   border: 2px solid #BBBBBB;
 }
 
+.fonts-widget-button .widget-item {
+  background: url("images/buttons.png") no-repeat top left;
+  height: 32px;
+  width: 32px;
+}
+
 .fonts-widget-button #uthmani {
-  background-image: url("images/uthmani.png");
+  background-position: -238px 0;
 }
 .fonts-widget-button #arabic {
-  background-image: url("images/traditional-arabic.png");
+  background-position: -204px 0;
 }
 
 .fonts-widget-button #size-1 {
-  background-image: url("images/size-1.png");
+  background-position: -102px 0;
 }
 .fonts-widget-button #size-2 {
-  background-image: url("images/size-2.png");
+  background-position: -136px 0;
 }
 .fonts-widget-button #size-3 {
-  background-image: url("images/size-3.png");
+  background-position: -170px 0;
 }
 
 .fonts-widget-button #height-1 {
-  background-image: url("images/height-1.png");
+  background-position: 0 0;
 }
 .fonts-widget-button #height-2 {
-  background-image: url("images/height-2.png");
+  background-position: -34px 0;
 }
 .fonts-widget-button #height-3 {
-  background-image: url("images/height-3.png");
+  background-position: -68px 0;
 }
 
 .fonts-widget-button #white {
   background-color: #fff;
+  background-image: none;
 }
 .fonts-widget-button #old {
   background-color: #fff9d4;
+  background-image: none;
 }
 .fonts-widget-button #black {
   background-color: #000;
+  background-image: none;
 }
 
 
